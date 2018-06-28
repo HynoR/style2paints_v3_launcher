@@ -1,5 +1,5 @@
 # style2paints-offline
-我们已经整合好了[paintstransfer](https://github.com/lllyasviel/style2paints)
+我们已经整合好了[style2paints](https://github.com/lllyasviel/style2paints)
 
 下载批处理即可使用.
 
