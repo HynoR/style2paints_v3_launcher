@@ -51,10 +51,12 @@ goto main
 mode con cols=70 lines=20
 start https://pan.baidu.com/s/1x5dSFjTT9OkARhbIupSKxQ
 echo 你没有完整文件或该启动器放错位置!
-echo 请下载paintstransfer相关文件
+echo --------------------------------
+echo 下载paintstransfer相关文件
 echo 链接：https://pan.baidu.com/s/1x5dSFjTT9OkARhbIupSKxQ 
 echo 提取密码：2333
-echo 请将启动器放在style2paints目录下！
+echo ---------------------------------
+echo 或是将启动器放在style2paints目录下！
 pause
 exit
 :err2
@@ -84,4 +86,4 @@ echo echo 运行异常或服务停止...按任意键退出 >>server.cache
 echo pause>nul >>server.cache
 echo exit >>server.cache
 rename server.cache server.bat
-goto check
+goto cho1
