@@ -2,8 +2,6 @@
 
 **注：本人不是[style2paints](https://github.com/lllyasviel/style2paints)的开发者，该程序与[style2paints](https://github.com/lllyasviel/style2paints)源代码无关**
 
-# 关于
-
 这个程序仅仅给不太懂安装环境的个人用户使用，群友已经整合好了[style2paints](https://github.com/lllyasviel/style2paints)的所有文件
 
 只需下载批处理，按照批处理的提示，即可使用
