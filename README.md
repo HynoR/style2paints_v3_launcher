@@ -1,7 +1,5 @@
 # style2paints-offline
 
-# 中文说明
-
 **注：本人不是[style2paints](https://github.com/lllyasviel/style2paints)的开发者，该程序与[style2paints](https://github.com/lllyasviel/style2paints)源代码无关**
 
 # 关于
