@@ -8,9 +8,8 @@
 
 # 下载
 
-先从该github页下载批处理，打开，然后跟着提示即可。
+下载链接：[百度云](https://pan.baidu.com/s/17o_wZFQ28l3iLenHuzUGuQ)
 
-备用链接：[百度云](https://pan.baidu.com/s/17o_wZFQ28l3iLenHuzUGuQ)
 密码：i8ji
 
 # 计算机配置需求
