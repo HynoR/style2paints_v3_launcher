@@ -16,6 +16,7 @@ if exist macaron\macaron.ini (goto main) else (goto makese)
 :first2
 rd /s /q temps
 del .gitignore
+del 开始.bat
 del README.md
 del .gitattributes
 md macaron
