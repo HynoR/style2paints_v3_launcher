@@ -19,18 +19,15 @@ del .gitignore
 del README.md
 del .gitattributes
 md macaron
-del ¿ªÊ¼.bat
 echo FirstRun=False >> macaron\macaron.ini
 if exist server.bat (goto main) else (goto err2)
 goto main
 :main
-rem Æô¶¯Æ÷by½»Á÷ÈºÄÚµÄËùÓÐ´óÀÐ
 cls
 echo Thanks to Google Translate :p
 echo ----------------------------------------------
 echo style2paints version:3.0   Current mode:CPU
 echo style2paints launcher version:macaron_0.11beta
-echo DO NOT USE IT FOR COMMERCIAL PURPOSES!
 echo ----------------------------------------------
 echo Start the server first,then open the interface
 echo Do not close it the service window while using
@@ -99,8 +96,8 @@ echo Please put the launcher in the style2paints directory!
 echo Input q Open the download link
 echo.
 echo Download the full files of paintstransfer
-echo LINK£ºhttps://pan.baidu.com/s/1x5dSFjTT9OkARhbIupSKxQ 
-echo Password£º2333
+echo LINKï¼šhttps://pan.baidu.com/s/1x5dSFjTT9OkARhbIupSKxQ 
+echo Passwordï¼š2333
 set /p inputword1=
 if "%inputword1%" == "q" (goto download) else cls
 exit
