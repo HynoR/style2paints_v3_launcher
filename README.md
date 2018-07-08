@@ -6,7 +6,7 @@
 
 只需下载批处理，按照批处理的提示，即可使用
 
-# 下载
+# 中文版下载
 
 下载链接：[百度云](https://pan.baidu.com/s/17o_wZFQ28l3iLenHuzUGuQ)
 
