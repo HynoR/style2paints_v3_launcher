@@ -22,28 +22,28 @@ del .gitignore
 del README.md
 del .gitattributes
 md macaron
-del ¿ªÊ¼.bat
+del å¼€å§‹.bat
 echo FirstRun=False >> macaron\macaron.ini
 if exist server.bat (goto main) else (goto err2)
 goto main
 :main
-rem Æô¶¯Æ÷by½»Á÷ÈºÄÚµÄËùÓĞ´óÀĞ
+rem å¯åŠ¨å™¨byäº¤æµç¾¤å†…çš„æ‰€æœ‰å¤§ä½¬
 cls
 echo ----------------------------------------------
-echo style2paintsÀëÏß°æ±¾:3.0   µ±Ç°Ä£Ê½:CPU
-echo style2paintsÆô¶¯Æ÷°æ±¾:macaron_0.11beta
-echo ÇëÎğÓÃÓÚÉÌÒµÓÃÍ¾£¡
+echo style2paintsç¦»çº¿ç‰ˆæœ¬:3.0   å½“å‰æ¨¡å¼:CPU
+echo style2paintså¯åŠ¨å™¨ç‰ˆæœ¬:macaron_0.11beta
+echo è¯·å‹¿ç”¨äºå•†ä¸šç”¨é€”ï¼
 echo ----------------------------------------------
-echo ÏÈÆô¶¯·şÎñ£¬Æô¶¯³É¹¦ºóÔÙ´ò¿ª½çÃæ
-echo Ê¹ÓÃÊ±ÇëÎğ¹Ø±Õ·şÎñ´°¿Ú
+echo å…ˆå¯åŠ¨æœåŠ¡ï¼Œå¯åŠ¨æˆåŠŸåå†æ‰“å¼€ç•Œé¢
+echo ä½¿ç”¨æ—¶è¯·å‹¿å…³é—­æœåŠ¡çª—å£
 echo ----------------------------------------------
-echo Çë°´ÏÂ¶ÔÓ¦Êı×Ö(1/2/3/4/5/6)
-echo 1.Æô¶¯·şÎñ
-echo 2.´ò¿ª½çÃæ
-echo 3.ÉÏÉ«½Ì³Ì
+echo è¯·æŒ‰ä¸‹å¯¹åº”æ•°å­—(1/2/3/4/5/6)
+echo 1.å¯åŠ¨æœåŠ¡
+echo 2.æ‰“å¼€ç•Œé¢
+echo 3.ä¸Šè‰²æ•™ç¨‹
 echo 4.Style2paints-Github
-echo 5.Æô¶¯Æ÷Bug»ã±¨ÒÔ¼°·´À¡
-echo 6.¹Ø±Õ
+echo 5.å¯åŠ¨å™¨Bugæ±‡æŠ¥ä»¥åŠåé¦ˆ
+echo 6.å…³é—­
 choice /c 123456 /n 
 if %errorlevel%==1 (goto cho1)
 if %errorlevel%==2 (goto cho2)
@@ -73,23 +73,23 @@ goto main
 del server.bat
 echo @echo off >>server.cache
 echo title style2paints_v3_server >>server.cache
-echo echo ¼´½«Æô¶¯·şÎñ...ÇëÎğ¹Ø±Õ´Ë´°¿Ú >>server.cache
+echo echo å³å°†å¯åŠ¨æœåŠ¡...è¯·å‹¿å…³é—­æ­¤çª—å£ >>server.cache
 echo timeout /t 3 >>server.cache
 echo cls >>server.cache
-echo echo ¿ªÊ¼³õÊ¼»¯,ºÄÊ±´óÔ¼1·ÖÖÓ,ÇëÄÍĞÄµÈ´ı,²»Òª¹Ø±Õ´Ë´°¿Ú >>server.cache
-echo echo ¼ÓÔØÊ±ÏÂÃæµÄÈÕÖ¾³öÏÖwarningµÈ×Ö·ûÊôÕı³£ÏÖÏó >>server.cache
-echo echo Èô³õÊ¼»¯³ö´í»áÓĞÖĞÎÄ±¨´íÌáÊ¾ >>server.cache
-echo echo ³öÏÖÒÔÏÂÎÄ×Ö¼´Æô¶¯³É¹¦ >>server.cache
+echo echo å¼€å§‹åˆå§‹åŒ–,è€—æ—¶å¤§çº¦1åˆ†é’Ÿ,è¯·è€å¿ƒç­‰å¾…,ä¸è¦å…³é—­æ­¤çª—å£ >>server.cache
+echo echo åŠ è½½æ—¶ä¸‹é¢çš„æ—¥å¿—å‡ºç°warningç­‰å­—ç¬¦å±æ­£å¸¸ç°è±¡ >>server.cache
+echo echo è‹¥åˆå§‹åŒ–å‡ºé”™ä¼šæœ‰ä¸­æ–‡æŠ¥é”™æç¤º >>server.cache
+echo echo å‡ºç°ä»¥ä¸‹æ–‡å­—å³å¯åŠ¨æˆåŠŸ >>server.cache
 echo echo --------------------------------- >>server.cache
 echo echo Listening on http://0.0.0.0:8000/ >>server.cache
 echo echo Hit Ctrl-C to quit. >>server.cache
 echo echo ---------------------------------- >>server.cache
-echo echo ÒÔÏÂÊÇÈÕÖ¾ÄÚÈİ............. >>server.cache
+echo echo ä»¥ä¸‹æ˜¯æ—¥å¿—å†…å®¹............. >>server.cache
 echo echo on >>server.cache
 echo cd server >>server.cache
 echo ..\python\python.exe server.py >>server.cache
 echo @echo off >>server.cache
-echo echo ÔËĞĞÒì³£»ò·şÎñÍ£Ö¹...°´ÈÎÒâ¼üÍË³ö >>server.cache
+echo echo è¿è¡Œå¼‚å¸¸æˆ–æœåŠ¡åœæ­¢...æŒ‰ä»»æ„é”®é€€å‡º >>server.cache
 echo pause>nul >>server.cache
 echo exit >>server.cache
 rename server.cache server.bat
@@ -97,13 +97,13 @@ cls
 goto first2
 :err1
 mode con cols=70 lines=20
-echo ÄãÃ»ÓĞÍêÕûÎÄ¼ş»ò¸ÃÆô¶¯Æ÷·Å´íÎ»ÖÃ!
-echo Çë½«Æô¶¯Æ÷·ÅÔÚstyle2paintsÄ¿Â¼ÏÂ£¡
-echo ÈôÃ»ÓĞÏà¹ØÎÄ¼şÊäÈë q ´ò¿ªÏÂÔØÁ´½Ó
+echo ä½ æ²¡æœ‰å®Œæ•´æ–‡ä»¶æˆ–è¯¥å¯åŠ¨å™¨æ”¾é”™ä½ç½®!
+echo è¯·å°†å¯åŠ¨å™¨æ”¾åœ¨style2paintsç›®å½•ä¸‹ï¼
+echo è‹¥æ²¡æœ‰ç›¸å…³æ–‡ä»¶è¾“å…¥ q æ‰“å¼€ä¸‹è½½é“¾æ¥
 echo.
-echo ÏÂÔØpaintstransferÏà¹ØÎÄ¼şµØÖ·
-echo Á´½Ó£ºhttps://pan.baidu.com/s/1x5dSFjTT9OkARhbIupSKxQ 
-echo ÌáÈ¡ÃÜÂë£º2333
+echo ä¸‹è½½paintstransferç›¸å…³æ–‡ä»¶åœ°å€
+echo é“¾æ¥ï¼šhttps://pan.baidu.com/s/1x5dSFjTT9OkARhbIupSKxQ 
+echo æå–å¯†ç ï¼š2333
 set /p inputword1=
 if "%inputword1%" == "q" (goto download) else cls
 exit
@@ -111,8 +111,8 @@ exit
 cls
 goto makese
 :err3
-echo ¶¼8102ÄêÁËµçÄÔ»¹Ã»choice.exe
-echo ÇëÈ¥ÏÂÔØÏà¹ØÎÄ¼ş£¬ºöÂÔÇëÊäÈë1
+echo éƒ½8102å¹´äº†ç”µè„‘è¿˜æ²¡choice.exe
+echo è¯·å»ä¸‹è½½ç›¸å…³æ–‡ä»¶ï¼Œå¿½ç•¥è¯·è¾“å…¥1
 set /p inputword2=
 if "%inputword2%" == "1" (goto check) else echo 0
 exit
