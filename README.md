@@ -8,7 +8,9 @@
 
 # 中文版下载
 
-下载链接：[百度云](https://pan.baidu.com/s/17o_wZFQ28l3iLenHuzUGuQ)
+批处理工具 [Releases](https://github.com/SNSLogty/style2paints-offline/releases)
+
+资源包下载链接：[百度云](https://pan.baidu.com/s/17o_wZFQ28l3iLenHuzUGuQ)
 
 密码：i8ji
 
