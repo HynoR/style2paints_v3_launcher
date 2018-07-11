@@ -10,14 +10,9 @@
 
 批处理工具 [Releases](https://github.com/SNSLogty/style2paints-offline/releases)
 
-资源包下载链接：[百度云](https://pan.baidu.com/s/17o_wZFQ28l3iLenHuzUGuQ)
-
-密码：i8ji
-
 # 计算机配置需求
+
 运存：6G+ 最低需要2.4G的空闲运行内存
 
 CPU：Intel i5或i7 上色速度取决于cpu性能
 
-# 一键版制作人员: 
-咸鱼王-SVCake SNSLOGTY
