@@ -6,7 +6,7 @@
 
 只需下载批处理，按照批处理的提示，即可使用。
 
-**请勿用于商业用途！
+**请勿用于商业用途！**
 
 批处理工具 [Releases](https://github.com/SNSLogty/style2paints-offline/releases)
 
