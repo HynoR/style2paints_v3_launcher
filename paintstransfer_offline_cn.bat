@@ -1,10 +1,12 @@
 @echo off
-title style2paints_macaron
-mode con cols=50 lines=26
 color 0A
+set versionw=0.2beta
+title style2paints_macaron version%versionw%
 :choicecheck
 if exist %windir%\System32\choice.exe goto check  else (goto err3)
 :check
+cd %~dp0
+::é˜²æ­¢è·¯å¾„é”™è¯¯
 if exist server\server.py (echo f1/6) else (goto err1)
 if exist server\baby.net (echo f2/6) else (goto err1)
 if exist server\tail.net (echo f3/6) else (goto err1)
@@ -13,97 +15,110 @@ if exist server\neck.net (echo f5/6) else (goto err1)
 if exist server\head.net (echo f6/6) else (goto err1)
 rem check files
 cls
-goto first1
-:first1
-if exist macaron\macaron.ini (goto main) else (goto makese)
-:first2
-rd /s /q temps
-del .gitignore
-del README.md
-del .gitattributes
-md macaron
-del ¿ªÊ¼.bat
-echo FirstRun=False >> macaron\macaron.ini
-if exist server.bat (goto main) else (goto err2)
-goto main
-:main
-rem Æô¶¯Æ÷by½»Á÷ÈºÄÚµÄËùÓĞ´óÀĞ
+goto firstruncheck
+:firstruncheck
 cls
-echo ----------------------------------------------
-echo style2paintsÀëÏß°æ±¾:3.0   µ±Ç°Ä£Ê½:CPU
-echo style2paintsÆô¶¯Æ÷°æ±¾:macaron_0.11beta
-echo ÇëÎğÓÃÓÚÉÌÒµÓÃÍ¾£¡
-echo ----------------------------------------------
-echo ÏÈÆô¶¯·şÎñ£¬Æô¶¯³É¹¦ºóÔÙ´ò¿ª½çÃæ
-echo Ê¹ÓÃÊ±ÇëÎğ¹Ø±Õ·şÎñ´°¿Ú
-echo ----------------------------------------------
-echo Çë°´ÏÂ¶ÔÓ¦Êı×Ö(1/2/3/4/5/6)
-echo 1.Æô¶¯·şÎñ
-echo 2.´ò¿ª½çÃæ
-echo 3.ÉÏÉ«½Ì³Ì
-echo 4.Style2paints-Github
-echo 5.Æô¶¯Æ÷Bug»ã±¨ÒÔ¼°·´À¡
-echo 6.¹Ø±Õ
-choice /c 123456 /n 
-if %errorlevel%==1 (goto cho1)
+if exist macaron\s2p.ini (goto main) else (goto first1)
+:first1
+md macaron
+echo FirstRun>>macaron\s2p.ini
+echo a1>>macaron\s2p.ini
+if exist å¼€å§‹.bat (del å¼€å§‹.bat) else (echo check1)
+goto main
+::è®¾ç½®ç»“æŸ
+:main
+rem å¯åŠ¨å™¨byäº¤æµç¾¤å†…çš„æ‰€æœ‰å¤§ä½¬
+cls
+ECHO.::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO.::                                                                          ::
+ECHO.::      style2paintsç¦»çº¿åŒ…ç‰ˆæœ¬:3.0     æ¨¡å¼:CPU                             ::
+ECHO.::      style2paintså¯åŠ¨å™¨ç‰ˆæœ¬:%versionw%                                      ::
+ECHO.::      è½¬è½½è¯·ä¸è¦åˆ é™¤æœ¬ä¿¡æ¯è¯·å‹¿ç”¨äºå•†ä¸šç”¨é€”ï¼                              :: 
+ECHO.::      å…ˆå¯åŠ¨æœåŠ¡ï¼Œå¯åŠ¨æˆåŠŸåå†æ‰“å¼€ç•Œé¢                                    ::
+ECHO.::      ä½¿ç”¨æ—¶è¯·å‹¿å…³é—­æœåŠ¡çª—å£                                              ::
+ECHO.::      äº¤æµQQç¾¤:879417437                                                  ::
+ECHO.::                                                                          ::
+ECHO.::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo ::        1       ::         2        ::       3        ::       4          ::
+echo ::    å¯åŠ¨æœåŠ¡    ::     æ‰“å¼€ç•Œé¢     ::      å…³äº      ::      å…³é—­        ::
+echo ::                ::                  ::                ::                  ::
+echo ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo æœ¬ç¨‹åºä»…é™64ä½ç³»ç»Ÿä½¿ç”¨ï¼Œå¯åŠ¨å‰è¯·ç¡®è®¤å·²å®‰è£…å…¨ç‰ˆæœ¬VC++è¿è¡Œåº“
+choice /c 1234 /n 
+if %errorlevel%==1 (goto makese)
 if %errorlevel%==2 (goto cho2)
 if %errorlevel%==3 (goto help)
-if %errorlevel%==4 (goto about)
-if %errorlevel%==5 (goto bugme)
-if %errorlevel%==6 (exit)
+if %errorlevel%==4 (exit)
+::ç¨‹åºéƒ¨åˆ†å¼€å§‹
 :cho1
+cls
 start server.bat
+timeout /t 2
 goto main
 :cho2
 start http://127.0.0.1:8000
 goto main
 :help
-start https://zhuanlan.zhihu.com/p/36560034
-goto main
-:about
-start https://github.com/lllyasviel/style2paints
-goto main
+cls
+echo 1.Github
+echo 2.çŸ¥ä¹
+echo 3.å¯åŠ¨å™¨æ›´æ–°
+echo 4.è¿”å›
+ECHO --------------------------------------------------
+echo åˆ¶ä½œ:style2paintså›¢é˜Ÿ
+echo style2paintséµå¾ªLICENSE-Apache License 2.0
+echo ä½†æˆ‘ä»¬ä¿ç•™æ‰€æœ‰å…³äºè®­ç»ƒæ¨¡å‹çš„æƒåˆ©
+ECHO WARNING:we reserve all rights about these models
+ECHO --------------------------------------------------
+echo å¾®åš@Style2Paints  çŸ¥ä¹@ä¸€ç§’ä¸€å–µ
+choice /c 1234 /n 
+if %errorlevel%==1 (start https://github.com/lllyasviel/style2paints)
+if %errorlevel%==2 (start https://zhuanlan.zhihu.com/p/36560034)
+if %errorlevel%==3 (start https://github.com/SNSLogty/style2paints-offline/releases)
+if %errorlevel%==4 (goto main)
+goto help
 :download
 start https://pan.baidu.com/s/1x5dSFjTT9OkARhbIupSKxQ 
 goto err1
-:bugme
-start https://github.com/SNSLogty/style2paints-offline/issues
-goto main
 :makese
 del server.bat
+pause please wait..
+timeout /t 2
 echo @echo off >>server.cache
 echo title style2paints_v3_server >>server.cache
-echo echo ¼´½«Æô¶¯·şÎñ...ÇëÎğ¹Ø±Õ´Ë´°¿Ú >>server.cache
+echo echo å³å°†å¯åŠ¨æœåŠ¡...è¯·å‹¿å…³é—­æ­¤çª—å£ >>server.cache
 echo timeout /t 3 >>server.cache
 echo cls >>server.cache
-echo echo ¿ªÊ¼³õÊ¼»¯,ºÄÊ±´óÔ¼1·ÖÖÓ,ÇëÄÍĞÄµÈ´ı,²»Òª¹Ø±Õ´Ë´°¿Ú >>server.cache
-echo echo ¼ÓÔØÊ±ÏÂÃæµÄÈÕÖ¾³öÏÖwarningµÈ×Ö·ûÊôÕı³£ÏÖÏó >>server.cache
-echo echo Èô³õÊ¼»¯³ö´í»áÓĞÖĞÎÄ±¨´íÌáÊ¾ >>server.cache
-echo echo ³öÏÖÒÔÏÂÎÄ×Ö¼´Æô¶¯³É¹¦ >>server.cache
+echo cd %~dp0 >>server.cache
+echo echo å¼€å§‹åˆå§‹åŒ–,è€—æ—¶å¤§çº¦1åˆ†é’Ÿ,è¯·è€å¿ƒç­‰å¾…,ä¸è¦å…³é—­æ­¤çª—å£ >>server.cache
+echo echo åŠ è½½æ—¶ä¸‹é¢çš„æ—¥å¿—å‡ºç°warningç­‰å­—ç¬¦å±æ­£å¸¸ç°è±¡ >>server.cache
+echo echo è‹¥åˆå§‹åŒ–å‡ºé”™ä¼šæœ‰ä¸­æ–‡æŠ¥é”™æç¤º >>server.cache
+echo echo å‡ºç°ä»¥ä¸‹æ–‡å­—å³å¯åŠ¨æˆåŠŸ >>server.cache
 echo echo --------------------------------- >>server.cache
 echo echo Listening on http://0.0.0.0:8000/ >>server.cache
 echo echo Hit Ctrl-C to quit. >>server.cache
 echo echo ---------------------------------- >>server.cache
-echo echo ÒÔÏÂÊÇÈÕÖ¾ÄÚÈİ............. >>server.cache
+echo echo ä»¥ä¸‹æ˜¯æ—¥å¿—å†…å®¹............. >>server.cache
 echo echo on >>server.cache
 echo cd server >>server.cache
 echo ..\python\python.exe server.py >>server.cache
 echo @echo off >>server.cache
-echo echo ÔËĞĞÒì³£»ò·şÎñÍ£Ö¹...°´ÈÎÒâ¼üÍË³ö >>server.cache
+echo echo è¿è¡Œå¼‚å¸¸æˆ–æœåŠ¡åœæ­¢...æŒ‰ä»»æ„é”®é€€å‡º >>server.cache
 echo pause>nul >>server.cache
 echo exit >>server.cache
 rename server.cache server.bat
 cls
-goto first2
+if exist server.bat (echo 1) else (goto main)
+goto cho1
 :err1
 mode con cols=70 lines=20
-echo ÄãÃ»ÓĞÍêÕûÎÄ¼ş»ò¸ÃÆô¶¯Æ÷·Å´íÎ»ÖÃ!
-echo Çë½«Æô¶¯Æ÷·ÅÔÚstyle2paintsÄ¿Â¼ÏÂ£¡
-echo ÈôÃ»ÓĞÏà¹ØÎÄ¼şÊäÈë q ´ò¿ªÏÂÔØÁ´½Ó
+echo ä½ æ²¡æœ‰å®Œæ•´æ–‡ä»¶æˆ–è¯¥å¯åŠ¨å™¨æ”¾é”™ä½ç½®!
+echo è¯·å°†å¯åŠ¨å™¨æ”¾åœ¨style2paintsç›®å½•ä¸‹ï¼
+echo è‹¥æ²¡æœ‰ç›¸å…³æ–‡ä»¶è¾“å…¥ q æ‰“å¼€ä¸‹è½½é“¾æ¥
 echo.
-echo ÏÂÔØpaintstransferÏà¹ØÎÄ¼şµØÖ·
-echo Á´½Ó£ºhttps://pan.baidu.com/s/1x5dSFjTT9OkARhbIupSKxQ 
-echo ÌáÈ¡ÃÜÂë£º2333
+echo ä¸‹è½½paintstransferç›¸å…³æ–‡ä»¶åœ°å€
+echo é“¾æ¥ï¼šhttps://pan.baidu.com/s/1x5dSFjTT9OkARhbIupSKxQ 
+echo æå–å¯†ç ï¼š2333
 set /p inputword1=
 if "%inputword1%" == "q" (goto download) else cls
 exit
@@ -111,8 +126,8 @@ exit
 cls
 goto makese
 :err3
-echo ¶¼8102ÄêÁËµçÄÔ»¹Ã»choice.exe
-echo ÇëÈ¥ÏÂÔØÏà¹ØÎÄ¼ş£¬ºöÂÔÇëÊäÈë1
+echo éƒ½8102å¹´äº†ç”µè„‘è¿˜æ²¡choice.exe
+echo è¯·å»ä¸‹è½½ç›¸å…³æ–‡ä»¶ï¼Œå¿½ç•¥è¯·è¾“å…¥1
 set /p inputword2=
 if "%inputword2%" == "1" (goto check) else echo 0
 exit
