@@ -1,7 +1,8 @@
 @echo off
 color 0A
-set versionw=0.2beta
-title style2paints_macaron version%versionw%
+setlocal enabledelayedexpansion
+set versionw=0.21
+title style2paints_macaron version %versionw%BETA
 :choicecheck
 if exist %windir%\System32\choice.exe goto check  else (goto err3)
 :check
@@ -32,8 +33,8 @@ cls
 ECHO.::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ECHO.::                                                                          ::
 ECHO.::      style2paints离线包版本:3.0     模式:CPU                             ::
-ECHO.::      style2paints启动器版本:%versionw%                                      ::
-ECHO.::      转载请不要删除本信息请勿用于商业用途！                              :: 
+ECHO.::      style2paints启动器版本:%versionw%BETA                                     ::
+ECHO.::      转载请不要删除本信息。请勿用于商业用途！                            :: 
 ECHO.::      先启动服务，启动成功后再打开界面                                    ::
 ECHO.::      使用时请勿关闭服务窗口                                              ::
 ECHO.::      交流QQ群:879417437                                                  ::
@@ -44,6 +45,7 @@ echo ::    启动服务    ::     打开界面     ::      关于      ::      �
 echo ::                ::                  ::                ::                  ::
 echo ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo 本程序仅限64位系统使用，启动前请确认已安装全版本VC++运行库
+echo 请按下相应数字
 choice /c 1234 /n 
 if %errorlevel%==1 (goto makese)
 if %errorlevel%==2 (goto cho2)
@@ -51,6 +53,33 @@ if %errorlevel%==3 (goto help)
 if %errorlevel%==4 (exit)
 ::程序部分开始
 :cho1
+cls
+echo 检测RAM中...按2可跳过(不推荐)
+choice /c 12 /n /t 3 /d 1
+if %errorlevel%==1 (echo ------------------------)
+if %errorlevel%==2 (goto runserver)
+cls
+for /f "usebackq tokens=2" %%i in (`systeminfo ^|findstr "可用的物理内存"`) do  @set/p=%%i^|<nul >>tmp.txt
+timeout /t 1 >nul
+for /f "tokens=1-3 delims=|" %%i in (tmp.txt) do (
+set BL1=%%i
+echo !BL1!>>tmp2.txt )
+for /f "tokens=1-3 delims=," %%i in (tmp2.txt) do (
+set BL2=%%i
+set BL3=%%j
+set /a rams=BL2*1000
+set /a rams2=rams+BL3
+ echo 当前内存 !rams2! MB
+ )
+ if !rams2! lss 2500 (echo 内存不足,请谨慎运行)
+ del tmp.txt
+ del tmp2.txt
+ echo ------------------------
+ echo 就绪....
+ echo 10秒钟后开始启动,按任意键跳过等待时间......
+timeout /t 10
+goto runserver
+:runserver
 cls
 start server.bat
 timeout /t 2
@@ -82,8 +111,8 @@ start https://pan.baidu.com/s/1x5dSFjTT9OkARhbIupSKxQ
 goto err1
 :makese
 del server.bat
-pause please wait..
-timeout /t 2
+echo please wait..
+timeout /t 1
 echo @echo off >>server.cache
 echo title style2paints_v3_server >>server.cache
 echo echo 即将启动服务...请勿关闭此窗口 >>server.cache
