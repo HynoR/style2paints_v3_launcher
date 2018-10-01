@@ -2,9 +2,11 @@
 color 0A
 setlocal enabledelayedexpansion
 set versionw=0.21
+set versionnum=21
 title style2paints_macaron version %versionw%BETA
 :choicecheck
-if exist %windir%\System32\choice.exe goto check  else (goto err3)
+if exist %windir%\System32\choice.exe (goto checkupdate)  else (goto err3)
+::啊啊啊啊啊批处理麻烦死了我为什么要写这鬼东西自虐by snslogty
 :check
 cd %~dp0
 ::防止路径错误
@@ -26,6 +28,32 @@ echo FirstRun>>macaron\s2p.ini
 echo a1>>macaron\s2p.ini
 if exist 开始.bat (del 开始.bat) else (echo check1)
 goto main
+:checkupdate
+if exist %windir%\System32\WindowsPowerShell\v1.0\powershell.exe (echo 检查更新中，按1跳过) else (goto nopowershell)
+choice /c 12 /n /t 3 /d 2
+if %errorlevel%==1 (goto check)
+if %errorlevel%==2 (echo 检测中)
+del vers.txt
+powershell.exe (new-object System.Net.WebClient).DownloadFile( 'https://raw.githubusercontent.com/SNSLogty/style2paints-offline/master/ver.md’,’vers.txt')
+for /f "tokens=1-3 delims=," %%i in (vers.txt) do (
+set BL4=%%i
+ )
+echo !BL4!
+if !versionnum! LSS !BL4! (goto wantup) else (echo 0)
+cls
+goto check
+:wantup
+echo 启动器有更新，是否更新?5秒钟后跳转更新界面,按1跳过
+choice /c 12 /n /t 5 /d 2
+if %errorlevel%==1 (goto check)
+if %errorlevel%==2 (goto goupdate)
+:goupdate
+START https://github.com/SNSLogty/style2paints-offline/releases/tag/!BL4!
+goto main
+:nopowershell
+echo 你没有powershell?
+timeout /t 5
+goto main
 ::设置结束
 :main
 rem 启动器by交流群内的所有大佬
@@ -45,13 +73,36 @@ echo ::    启动服务    ::     打开界面     ::      关于      ::      �
 echo ::                ::                  ::                ::                  ::
 echo ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo 本程序仅限64位系统使用，启动前请确认已安装全版本VC++运行库
+echo beta测试补丁:加快服务打开速度并自动打开界面,按5下载
 echo 请按下相应数字
-choice /c 1234 /n 
+choice /c 12345 /n 
 if %errorlevel%==1 (goto makese)
 if %errorlevel%==2 (goto cho2)
 if %errorlevel%==3 (goto help)
 if %errorlevel%==4 (exit)
+if %errorlevel%==5 (goto betas)
 ::程序部分开始
+:betas
+powershell.exe (new-object System.Net.WebClient).DownloadFile( 'https://download.elifulkerson.com//files/tcping/0.39/tcping.exe’,’tcping.exe')
+echo @echo off>>beta.bat
+echo :pins>>beta.bat
+echo cls >>beta.bat
+echo echo 检测中>>beta.bat
+timeout /t 3>>beta.bat
+echo tcping.exe 127.0.0.1 8000>>beta.bat
+echo if errorlevel 1 (>>beta.bat
+echo  goto pins>>beta.bat
+::1失败 
+echo ) else (>>beta.bat
+echo   goto runs>>beta.bat
+echo )>>beta.bat
+echo :runs>>beta.bat
+echo cls>>beta.bat
+echo echo 服务已启动>>beta.bat
+echo start http://127.0.0.1:8000>>beta.bat
+echo timeout /t 20>>beta.bat
+echo exit>>beta.txt
+goto main
 :cho1
 cls
 echo 检测RAM中...按2可跳过(不推荐)
@@ -69,6 +120,7 @@ set BL2=%%i
 set BL3=%%j
 set /a rams=BL2*1000
 set /a rams2=rams+BL3
+if !BL2! gtr 100 (set rams2=!BL2!)
  echo 当前内存 !rams2! MB
  )
  if !rams2! lss 2500 (echo 内存不足,请谨慎运行)
@@ -82,6 +134,7 @@ goto runserver
 :runserver
 cls
 start server.bat
+if exist beta.bat (start beta.bat) else (echo 00)
 timeout /t 2
 goto main
 :cho2
@@ -103,7 +156,7 @@ echo 微博@Style2Paints  知乎@一秒一喵
 choice /c 1234 /n 
 if %errorlevel%==1 (start https://github.com/lllyasviel/style2paints)
 if %errorlevel%==2 (start https://zhuanlan.zhihu.com/p/36560034)
-if %errorlevel%==3 (start https://github.com/SNSLogty/style2paints-offline/releases)
+if %errorlevel%==3 (goto goupdate)
 if %errorlevel%==4 (goto main)
 goto help
 :download
