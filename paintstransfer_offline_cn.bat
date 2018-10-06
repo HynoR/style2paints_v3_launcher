@@ -1,8 +1,41 @@
+::[Bat To Exe Converter]
+::
+::YAwzoRdxOk+EWAjk
+::fBw5plQjdCyDJGyX8VAjFDpQQQ2MNXiuFLQI5/rHy++UqVkSRN45eZnS2buAbukQ5SU=
+::YAwzuBVtJxjWCl3EqQJhSA==
+::ZR4luwNxJguZRRmX4Fs8LUlETQ2MKHja
+::Yhs/ulQjdF+5
+::cxAkpRVqdFKZSjk=
+::cBs/ulQjdF+5
+::ZR41oxFsdFKZSDk=
+::eBoioBt6dFKZSDk=
+::cRo6pxp7LAbNWATEpSI=
+::egkzugNsPRvcWATEpSI=
+::dAsiuh18IRvcCxnZtBJQ
+::cRYluBh/LU+EWAnk
+::YxY4rhs+aU+JeA==
+::cxY6rQJ7JhzQF1fEqQJQ
+::ZQ05rAF9IBncCkqN+0xwdVs0
+::ZQ05rAF9IAHYFVzEqQJQ
+::eg0/rx1wNQPfEVWB+kM9LVsJDGQ=
+::fBEirQZwNQPfEVWB+kM9LVsJDGQ=
+::cRolqwZ3JBvQF1fEqQJQ
+::dhA7uBVwLU+EWDk=
+::YQ03rBFzNR3SWATElA==
+::dhAmsQZ3MwfNWATElA==
+::ZQ0/vhVqMQ3MEVWAtB9wSA==
+::Zg8zqx1/OA3MEVWAtB9wSA==
+::dhA7pRFwIByZRRnk
+::Zh4grVQjdCyDJGyX8VAjFDpQQQ2MNXiuFLQI5/rHy++UqVkSRN4sbJbX3+aeIekd/laqcI4otg==
+::YB416Ek+ZG8=
+::
+::
+::978f952a14a936cc963da21a135fa983
 @echo off
 color 0A
 setlocal enabledelayedexpansion
 set versionw=0.21
-set versionnum=21
+set versionnum=22
 title style2paints_macaron version %versionw%BETA
 :choicecheck
 if exist %windir%\System32\choice.exe (goto checkupdate)  else (goto err3)
@@ -49,7 +82,7 @@ if %errorlevel%==1 (goto check)
 if %errorlevel%==2 (goto goupdate)
 :goupdate
 START https://github.com/SNSLogty/style2paints-offline/releases/tag/!BL4!
-goto main
+goto check
 :nopowershell
 echo 你没有powershell?
 timeout /t 5
@@ -156,7 +189,7 @@ echo 微博@Style2Paints  知乎@一秒一喵
 choice /c 1234 /n 
 if %errorlevel%==1 (start https://github.com/lllyasviel/style2paints)
 if %errorlevel%==2 (start https://zhuanlan.zhihu.com/p/36560034)
-if %errorlevel%==3 (goto goupdate)
+if %errorlevel%==3 (START https://github.com/SNSLogty/style2paints-offline/releases/)
 if %errorlevel%==4 (goto main)
 goto help
 :download
