@@ -1,0 +1,8 @@
+tensorflow_gpu
+keras
+bottle
+gevent
+h5py
+opencv-python
+scikit-image
+paste
