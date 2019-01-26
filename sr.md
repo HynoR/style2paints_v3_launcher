@@ -1,0 +1,13 @@
+SlhVNE1rUkdKWFUxTWpJNUpYVTFOa1pFSlhVMVFrSTJKWFUzTlRGR0pYVTJRamRDSlhVMFJVVTFjM055SlROQkx5OU5WRTAxVEdwRk5FMUROSGhPUkZsMVRXcEpNRTlxUlhkTmFrRjVUMjA1ZVdGWFpIQmlhbkJvV2xoTmRFMXFWVEpNVjA1dFdXcHdkMkpIUm5CaWFuQlBVa1pHTmxOc1VrNWxiSEJJVld0RkpUSXdKVEJC
+
+
+↑
+
+
+请用base64解密两次即可出s-s-r链接
+
+仅供学术使用，严禁用于非法用途
+
+
+![pic](https://raw.githubusercontent.com/SNSLogty/style2paints_v3_launcher/master/1548507861830.jpg)
+
