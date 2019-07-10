@@ -1,4 +1,4 @@
-tensorflowtensorflow==1.10.0
+tensorflow==1.10.0
 keras
 bottle
 gevent
