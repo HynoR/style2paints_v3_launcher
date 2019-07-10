@@ -1,5 +1,9 @@
 from config import *
 
+if multiple_process:
+    from gevent import monkey
+    monkey.patch_all()
+
 import re
 import os
 import cv2
@@ -47,7 +51,7 @@ def handle_sketch_upload_pool():
     if len(sketch_upload_pool) > 0:
         room, sketch, method = sketch_upload_pool[0]
         del sketch_upload_pool[0]
-        room_path = './gamerooms/' + room
+        room_path = 'game/rooms/' + room
         print('processing sketch in ' + room_path)
         if os.path.exists(room_path + '/sketch.improved.jpg'):
             improved_sketch = cv2.imread(room_path + '/sketch.improved.jpg')
@@ -87,7 +91,7 @@ def handle_painting_pool():
     if len(painting_pool) > 0:
         room, ID, sketch, alpha, reference, points, method, lineColor, line = painting_pool[0]
         del painting_pool[0]
-        room_path = './gamerooms/' + room
+        room_path = 'game/rooms/' + room
         print('processing painting in ' + room_path)
         sketch_1024 = k_resize(sketch, 64)
         if os.path.exists(room_path + '/sketch.de_painting.jpg') and method == 'rendering':
@@ -141,20 +145,20 @@ def upload_sketch():
     previous_step = request.forms.get("step")
     if previous_step == 'sample':
         new_room_id = datetime.datetime.now().strftime('%b%dH%HM%MS%S') + 'R' + str(np.random.randint(100, 999))
-        shutil.copytree('./gamesamples/' + room, './gamerooms/' + new_room_id)
-        print('copy ' + './gamesamples/' + room + ' to ' + './gamerooms/' + new_room_id)
+        shutil.copytree('game/samples/' + room, 'game/rooms/' + new_room_id)
+        print('copy ' + 'game/samples/' + room + ' to ' + 'game/rooms/' + new_room_id)
         room = new_room_id
     ID = datetime.datetime.now().strftime('H%HM%MS%S')
     method = request.forms.get("method")
     if room == 'new':
         room = datetime.datetime.now().strftime('%b%dH%HM%MS%S') + 'R' + str(np.random.randint(100, 999))
-        room_path = './gamerooms/' + room
+        room_path = 'game/rooms/' + room
         os.makedirs(room_path, exist_ok=True)
         sketch = from_png_to_jpg(get_request_image('sketch'))
         cv2.imwrite(room_path + '/sketch.original.jpg', sketch)
         print('original_sketch saved')
     else:
-        room_path = './gamerooms/' + room
+        room_path = 'game/rooms/' + room
         sketch = cv2.imread(room_path + '/sketch.original.jpg')
     print('sketch upload pool get request: ' + method)
     sketch_upload_pool.append((room, sketch, method))
@@ -172,11 +176,11 @@ def request_result():
     previous_step = request.forms.get("step")
     if previous_step == 'sample':
         new_room_id = datetime.datetime.now().strftime('%b%dH%HM%MS%S') + 'R' + str(np.random.randint(100, 999))
-        shutil.copytree('./gamesamples/' + room, './gamerooms/' + new_room_id)
-        print('copy ' + './gamesamples/' + room + ' to ' + './gamerooms/' + new_room_id)
+        shutil.copytree('game/samples/' + room, 'game/rooms/' + new_room_id)
+        print('copy ' + 'game/samples/' + room + ' to ' + 'game/rooms/' + new_room_id)
         room = new_room_id
     ID = datetime.datetime.now().strftime('H%HM%MS%S')
-    room_path = './gamerooms/' + room
+    room_path = 'game/rooms/' + room
     options_str = request.forms.get("options")
     if debugging:
         with open(room_path + '/options.' + ID + '.json', 'w') as f:
@@ -209,7 +213,7 @@ def request_result():
 @route('/get_sample_list', method='POST')
 def get_sample_list():
     all_names = []
-    for (root, dirs, files) in os.walk("./gamesamples"):
+    for (root, dirs, files) in os.walk("game/samples"):
         all_names = dirs
         break
     all_names.sort()
@@ -221,8 +225,8 @@ def get_sample_list():
 def save_as_sample():
     room = request.forms.get("room")
     step = request.forms.get("step")
-    previous_path = './gamerooms/' + room
-    new_path = './gamesamples/' + room
+    previous_path = 'game/rooms/' + room
+    new_path = 'game/samples/' + room
     os.makedirs(new_path, exist_ok=True)
 
     def transfer(previous_file_name, new_file_name=None):
@@ -259,12 +263,12 @@ def server_loop():
             print(e)
 
 
-os.makedirs('./gamerooms', exist_ok=True)
+os.makedirs('game/rooms', exist_ok=True)
 os.makedirs('results', exist_ok=True)
 threading.Thread(target=server_loop).start()
 
 if multiple_process:
-    run(host="0.0.0.0", port=80, server='paste')
+    run(host="0.0.0.0", port=80, server='gevent')
 else:
-    run(host="0.0.0.0", port=8000, server='paste')
+    run(host="0.0.0.0", port=8080)
 
