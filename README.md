@@ -1,5 +1,8 @@
 # style2paints-offline
+
 停止更新，具体安装请看issue100
+
+
 About offline program -->see [#100](https://github.com/lllyasviel/style2paints/issues/100) in the repo [style2paints](https://github.com/lllyasviel/style2paints)
 
 **注：本人不是[style2paints](https://github.com/lllyasviel/style2paints)核心部分的开发者，该程序与[style2paints](https://github.com/lllyasviel/style2paints)源代码无关**
