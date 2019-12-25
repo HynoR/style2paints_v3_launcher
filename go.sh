@@ -23,10 +23,8 @@ custom_proxy_group=📺 日本`select`[]🔰 节点选择`[]✈ 手动选择`[]�
 custom_proxy_group=📺 新加坡`select`[]🔰 节点选择`[]✈ 手动选择`[]✈ 延迟最低`(新加坡)
 custom_proxy_group=🌍 国外媒体`select`[]🔰 节点选择`[]✈ 手动选择`[]✈ 延迟最低`[]DIRECT
 custom_proxy_group=🌏 国内媒体`select`[]DIRECT`[]🔰 节点选择`[]✈ 手动选择`[]✈ 延迟最低
-custom_proxy_group=🍎 苹果服务`select`[]DIRECT`[]🔰 节点选择`[]✈ 手动选择`[]✈ 延迟最低`[]✈ 故障切换
 custom_proxy_group=🛑 全球拦截`select`[]REJECT`[]DIRECT
 custom_proxy_group=🐟 漏网之鱼`select`🔰 节点选择`select`[]✈ 手动选择`[]✈ 延迟最低`[]DIRECT
 custom_proxy_group=✈ 手动选择`select`.*
 custom_proxy_group=✈ 延迟最低`url-test`.*`http://www.gstatic.com/generate_204`500
 ;设置分组标志位
-;1
