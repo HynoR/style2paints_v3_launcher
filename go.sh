@@ -29,3 +29,4 @@ custom_proxy_group=🐟 漏网之鱼`select`🔰 节点选择`select`[]✈ 手�
 custom_proxy_group=✈ 手动选择`select`.*
 custom_proxy_group=✈ 延迟最低`url-test`.*`http://www.gstatic.com/generate_204`500
 ;设置分组标志位
+;1
