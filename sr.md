@@ -27,4 +27,5 @@ custom_proxy_group=🛑 全球拦截`select`[]REJECT`[]DIRECT
 custom_proxy_group=🐟 漏网之鱼`select`🔰 节点选择`select`[]✈ 手动选择`[]✈ 延迟最低`[]DIRECT
 custom_proxy_group=✈ 手动选择`select`.*
 custom_proxy_group=✈ 延迟最低`url-test`.*`http://www.gstatic.com/generate_204`500
-;设置分组标志位
+custom_proxy_group=✈ 故障切换`select`🔰 节点选择`select`[]✈ 手动选择`[]✈ 延迟最低`[]DIRECT
+;设置分组标志位1
