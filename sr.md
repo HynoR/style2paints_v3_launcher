@@ -17,19 +17,16 @@ surge_ruleset=🐟 漏网之鱼,[]FINAL
 ;设置规则标志位
 
 ;设置分组标志位
-custom_proxy_group=🔰 线路选择`select`[]🚀 CN2节点`[]🛸 BGP隧道节点`[]🛰 IPLC节点`[]DIRECT
+custom_proxy_group=🔰 线路选择`select`[]🚀 CN2节点`[]🛰 IPLC节点`[]DIRECT
 custom_proxy_group=🚀 CN2节点`select`[]✈ 自动cn2`(CN2|HINET)
-custom_proxy_group=🛸 BGP隧道节点`select`[]✈ 自动bgp`(BGP)
 custom_proxy_group=🛰 IPLC节点`select`[]✈ 自动iplc`(IPLC)
-custom_proxy_group=📲 电报代理`select`[]🔰 线路选择`[]🛰 IPLC节点`[]🛸 BGP隧道节点`[]DIRECT
+custom_proxy_group=📲 电报代理`select`[]🔰 线路选择`[]🛰 IPLC节点`[]DIRECT
 custom_proxy_group=📹 YouTube`select`[]🔰 线路选择`[]🛸 BGP隧道节点`[]🚀 CN2节点`[]DIRECT
-custom_proxy_group=🎥 NETFLIX`select`[]🔰 线路选择`[]🛸 BGP隧道节点`[]🚀 CN2节点`[]DIRECT
 custom_proxy_group=🌍 国外媒体`select`[]🔰 线路选择`[]DIRECT
 custom_proxy_group=🌏 国内媒体`select`[]DIRECT`[]🔰 线路选择
 custom_proxy_group=🛑 全球拦截`select`[]REJECT`[]DIRECT
 custom_proxy_group=🐟 漏网之鱼`select`[]🔰 线路选择`[]DIRECT
 custom_proxy_group=✈ 自动cn2`url-test`(CN2|HINET)`http://www.gstatic.com/generate_204`500
-custom_proxy_group=✈ 自动bgp`url-test`(BGP)`http://www.gstatic.com/generate_204`500
 custom_proxy_group=✈ 自动iplc`url-test`(IPLC)`http://www.gstatic.com/generate_204`500
 custom_proxy_group=✈ 故障切换`select`[]DIRECT
 custom_proxy_group=✈ 延迟最低`select`[]DIRECT
